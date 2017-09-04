@@ -27,4 +27,17 @@ RSpec.describe Square do
 		expect(square.X).to be_between(0,8).exclusive 
 		expect(square.Y).to be_between(0,8).exclusive
 	end 
+
+	it "has 8x8 squares" do
+		board = Board.new 
+		expect(board.squares.size).to eq 64
+	end 
+
+	describe context "#build_squares" do 
+		it "should return a 8x8 matrix of squares" do 
+			board = Board.new 
+			matrix = board.build_squares 
+			expect(matrix.size).to eq 64 
+		end 
+	end
 end 
