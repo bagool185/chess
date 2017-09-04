@@ -3,6 +3,7 @@ require "chess"
 require "player"
 require "piece"
 require "board"
+require "square"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
