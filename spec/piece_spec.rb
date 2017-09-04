@@ -14,9 +14,13 @@ RSpec.describe Piece do
 		expect(VALID_PIECES_NAMES.include?(piece.name)).to be false 
 	end 
 
-	RSpec.describe context "#valid_move" do 
-		it "returns true when a move is valid" do 
-			
-		end
+	it "has the color white by default" do 
+		piece = Piece.new("King")
+		expect(piece.color).to eq "white"
+	end 
+
+	it "has the color black if provided" do 
+		piece = Piece.new("Knight", "black")
+		expect(piece.color).to eq "black"
 	end 
 end
