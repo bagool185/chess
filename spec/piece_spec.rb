@@ -23,4 +23,16 @@ RSpec.describe Piece do
 		piece = Piece.new("Knight", "black")
 		expect(piece.color).to eq "black"
 	end 
+
+	it "has a specific shape" do 
+		piece = Piece.new("Knight")
+		expect(piece.shape).not_to be nil 
+	end 
+
+	describe context "#get_shape" do 
+		it "returns the shape specific to a piece" do 
+			piece = Piece.new("Knight")
+			expect(piece.shape).to eq "2658"
+		end 
+	end 
 end
