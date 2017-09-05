@@ -1,5 +1,6 @@
 require "chess/version"
 
 module Chess
-  # Your code goes here...
+  class Chess 
+  end 
 end
