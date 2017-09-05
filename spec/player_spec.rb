@@ -1,4 +1,5 @@
 require "spec_helper"
+require "piece"
 
 RSpec.describe Player do
   it "has a name assigned through constructor" do 
@@ -20,4 +21,12 @@ RSpec.describe Player do
 		player = Player.new("bagool", "black")
 		expect(player.color).to eql "black"
 	end 
+
+	describe context "#pick_piece" do 
+		it "selects a chess piece on the board based on its position" do 
+			player = Player.new("bagool")
+			piece = player.pick_piece("A2")
+			expect(piece.name).to eq "rook" 
+		end
+	end
 end
