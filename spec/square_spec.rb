@@ -38,4 +38,17 @@ RSpec.describe Square do
 			expect(square.adjacency_list.size).to be > 0 
 		end
 	end
+
+	describe context "#is_adjacent?" do 
+		it "returns false if not adjacent" do 
+			square = Square.new(1, 1, "A1")
+			expect(square.is_adjacent?("A2")).to be false 
+		end
+
+		it "returns true if is adjacent" do
+			square = Square.new(1, 1, "A1") 
+			square.add_adjacent_node(Square.new(1, 2, "A2", "black"))
+			expect(square.is_adjacent?("A2")).to be true 
+		end
+	end
 end 

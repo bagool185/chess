@@ -13,4 +13,8 @@ class Square
 	def add_adjacent_node(square)
 		adjacency_list << square 
 	end
+
+	def is_adjacent?(label)
+		return @adjacency_list.any? { |square| square.label == label }
+	end
 end 
