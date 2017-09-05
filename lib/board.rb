@@ -1,4 +1,4 @@
-require "square"
+require_relative "square"
 
 class Board 
 	attr_accessor :size, :squares
@@ -13,11 +13,12 @@ class Board
 
 		temp_matrix = []
 
-		('A'..'H').each do |i| 
-			(1..8).each do |j|  
-				label = i + j.to_s 
+
+		(1..8).reverse_each do |i| 
+			('A'..'H').each do |j| 	 
+				label = j + i.to_s 
 				# prepend the node into the graph
-				temp_matrix.unshift(Square.new(i, j, label, crt_color))
+				temp_matrix. << (Square.new(i, j, label, crt_color))
 				# alternate the crt_color 
 				crt_color = (crt_color == "white") ? "black" : "white"
 			end
@@ -31,3 +32,5 @@ class Board
 	end 
 end 
 
+board = Board.new 
+board.display_board
