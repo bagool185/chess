@@ -18,5 +18,14 @@ RSpec.describe Board do
 			expect(matrix.size).to eq 64 
 		end 
 	end
+
+	describe context "#change_color" do 
+		it "switches the current color" do 
+			board = Board.new 
+			crt_color = "white"
+			crt_color = board.change_color(crt_color)
+			expect(crt_color).to eq "black"
+		end
+	end
 end 
 

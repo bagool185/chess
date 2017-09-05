@@ -10,7 +10,7 @@ class Board
 	end
 
 	def build_squares 
-		crt_color = "white"
+		crt_color = "black"
 
 		temp_matrix = []
 
@@ -18,7 +18,7 @@ class Board
 			('A'..'H').each do |j| 	
 				# compose the label of the square
 				label = j + i.to_s 
-				piece = nil 
+				piece = nil 	
 				# iterate thorugh the position hashes to find the piece
 				# and then retrieve its color and name by spliting  
 				# piece_name (the first word will be the color and the)
@@ -34,12 +34,16 @@ class Board
 				square.piece = piece
 				# prepend the node into the graph
 				temp_matrix. << (square)
-				# alternate the crt_color 
-				crt_color = (crt_color == "white") ? "black" : "white"
+				crt_color = change_color(crt_color) unless j == 'H'
 			end
 		end 
 
 		return temp_matrix
+	end
+
+	def change_color(crt_color) 
+		# alternate the crt_color 
+		return (crt_color == "white") ? "black" : "white" 
 	end
 
 	def display_board 
