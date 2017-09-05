@@ -17,7 +17,7 @@ RSpec.describe Square do
 	end	
 
 	it "is black if provided with parameter" do 
-		square = Square.new(1, 1, "A1", "black")
+		square = Square.new(1, 2, "A2", "black")
 		expect(square.color).to eq "black"
 	end 
 
@@ -29,5 +29,13 @@ RSpec.describe Square do
 	it "has a nil piece by default" do 
 		square = Square.new(1, 1, "A1")
 		expect(square.piece).to be nil 
+	end
+
+	describe context "#add_adjacent_node" do 
+		it "should add push a node into the adjacency list" do 
+			square = Square.new(1, 1, "A1")
+			square.add_adjacent_node(Square.new(1,2,"A2","black"))
+			expect(square.adjacency_list.size).to be > 0 
+		end
 	end
 end 

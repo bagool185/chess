@@ -9,4 +9,8 @@ class Square
 		@adjacency_list = [] 
 		@piece = nil 
 	end
+
+	def add_adjacent_node(square)
+		adjacency_list << square 
+	end
 end 
