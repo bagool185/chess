@@ -51,7 +51,6 @@ class Board
 		@squares.each_with_index do |square, index|
 			# if the index is a multiple of 8, then the line has finished			
 			puts "\n" if index % 8 == 0
-
 			# if the square doesn't have any square on it, it will print 
 			# a white or black square depending on the position
 			# white square -> U+25A0
