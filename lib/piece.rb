@@ -11,7 +11,7 @@ class Piece
 
 	def get_shape
 		# unicode mappings  
-		shape_name = @color + " " + @name.downcase
+		shape_name = @color + " " + @name
 
 		return SHAPE_HASHES[shape_name.to_s]
 	end 
