@@ -13,10 +13,11 @@ class Board
 
 		temp_matrix = []
 
-		(0...8).each do |i| 
-			(0...8).each do |j|  
-				# push a new square into the matrix at the coords i and j
-				temp_matrix << Square.new(i, j, crt_color)
+		('A'..'H').each do |i| 
+			(1..8).each do |j|  
+				label = i + j.to_s 
+				# prepend the node into the graph
+				temp_matrix.unshift(Square.new(i, j, label, crt_color))
 				# alternate the crt_color 
 				crt_color = (crt_color == "white") ? "black" : "white"
 			end
