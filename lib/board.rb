@@ -25,4 +25,9 @@ class Board
 
 		return temp_matrix
 	end
+
+	def display_board 
+		@squares.each { |square| print square.label }
+	end 
 end 
+
