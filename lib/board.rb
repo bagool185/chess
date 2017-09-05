@@ -13,7 +13,6 @@ class Board
 
 		temp_matrix = []
 
-
 		(1..8).reverse_each do |i| 
 			('A'..'H').each do |j| 	 
 				label = j + i.to_s 
