@@ -11,6 +11,10 @@ class Player
 	end
 
 	def pick_square(board, label)
+		if !valid_label?(label)
+			return "The label '#{label}' is not a valid one"
+		end
+
 		board.squares.each do |square|
 			if square.label == label 
 				@picked_square_label = square.label
@@ -22,6 +26,10 @@ class Player
 	end
 	
 	def move_piece(board, picked_piece, destination_label)
+		if !valid_label?(destination_label)
+			return "The label '#{destination_label}' is not a valid one"
+		end 
+		
 		safe_to_move = false 
 
 		board.squares.each do |square|
