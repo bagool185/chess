@@ -18,18 +18,21 @@ class Game
   end
 
   def start_game 
-    puts "Welcome to the mighty game of chess!"
-    puts "The rules are identical to the official ones"
-    puts "When asked to pick a piece, type the label assigned to its place"
-    puts "e.g. the white rook is initially placed at A1"
-    puts "Now let's begin!"
+    print %{
+    Welcome to the mighty game of chess!
+    The rules are identical to the official ones
+    When asked to pick a piece, type the label assigned to its place
+    e.g. the white rook is initially placed at A1
+    Now let's begin!
+
+    } 
 
     @game_started = true 
 
     while is_running? 
       @board.display_board 
 
-      puts "\n It's #{@crt_player_turn.name}'s turn."
+      puts "\n\nIt's #{@crt_player_turn.name}'s turn."
       puts "Pick a piece: "
 
       picked_label = gets.chomp
