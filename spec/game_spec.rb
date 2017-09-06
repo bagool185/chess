@@ -21,4 +21,22 @@ RSpec.describe Game do
     expect(game.player1.name).to eq "bagool"
     expect(game.player2.name).to eq "hijwe"
   end
+
+  it "has a current player turn" do 
+    game = Game.new 
+    expect(game.crt_player_turn).not_to be nil 
+  end 
+
+  it "sets the first turn to player1" do 
+    game = Game.new 
+    expect(game.crt_player_turn).to be game.player1
+  end 
+
+  describe context "#change_turn" do 
+    it "changes turns between players" do 
+      game = Game.new 
+      game.change_turn
+      expect(game.crt_player_turn).to be game.player2 
+    end
+  end
 end 
