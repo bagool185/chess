@@ -25,14 +25,26 @@ class Player
 		safe_to_move = false 
 
 		board.squares.each do |square|
-			if square.label == destination_label && square.piece.nil?
-				square.piece = picked_piece
-				safe_to_move = true 
-			end
+			if square.label == destination_label 
+				# check if the square is empty
+				if square.piece.nil? 
+					square.piece = picked_piece
+					safe_to_move = true 
+				# if the square is not empty, check whether 
+				# the piece it contains is the same color 
+				# as the piece to be moved
+				elsif square.piece.color == picked_piece.color 
+					return "You can't move to #{destination_label}, " +
+						"because it is occupied by one of your pieces"
+				else 
+					square.piece = picked_piece
+					safe_to_move = true 		
+				end
+			end 
 		end 		
 
 		if safe_to_move
-			board.squares.each do |squares| 
+			board.squares.each do |square| 
 				if square.label == @picked_square_label
 					square.piece = nil 
 				end 

@@ -67,5 +67,15 @@ RSpec.describe Player do
 			
 			expect(destination.name).to eq "rook"
 		end
+
+		it "returns error message for invalid moves" do 
+			player = Player.new("bagool")
+			board = Board.new 
+
+			picked_square = player.pick_square(board, "A1")
+			message = player.move_piece(board, picked_square.piece, "A2")
+
+			expect(message).to eq "You can't move to A2, because it is occupied by one of your pieces"
+		end 
 	end 
 end
