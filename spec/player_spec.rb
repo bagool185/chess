@@ -78,4 +78,16 @@ RSpec.describe Player do
 			expect(message).to eq "You can't move to A2, because it is occupied by one of your pieces"
 		end 
 	end 
+
+	describe context "#valid_label?" do 
+		it "returns true if the label is valid" do 
+			player = Player.new("bagool")
+			expect(player.valid_label?("A2")).to be true 
+		end 
+
+		it "returns false if the label is not valid" do 
+			player = Player.new("bagool")
+			expect(player.valid_label?("A9")).to be false 
+		end
+	end
 end

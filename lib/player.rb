@@ -20,7 +20,7 @@ class Player
 			end
 		end	
 	end
-
+	
 	def move_piece(board, picked_piece, destination_label)
 		safe_to_move = false 
 
@@ -50,6 +50,18 @@ class Player
 				end 
 			end  
 		end 
+	end
+
+	def valid_label?(label)
+		('A'..'H').each do |letter| 
+			(1..8).each do |digit|
+				crt_label = letter + digit.to_s 
+
+				return true if label == crt_label
+			end 
+		end 
+
+		return false 
 	end
 end 
 
