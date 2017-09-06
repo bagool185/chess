@@ -38,5 +38,18 @@ RSpec.describe Game do
       game.change_turn
       expect(game.crt_player_turn).to be game.player2 
     end
+  end    
+
+  describe context "#is_running?" do 
+    it "returns true if the game is running" do 
+      game = Game.new 
+      game.start_game 
+      expect(game.is_running?).to be true 
+    end 
+
+    it "returns false if the game has ended or not started" do 
+      game = Game.new 
+      expect(game.is_running?).to be false 
+    end 
   end
 end 

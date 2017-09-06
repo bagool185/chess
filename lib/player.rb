@@ -14,7 +14,8 @@ class Player
 		board.squares.each do |square|
 			if square.label == label 
 				@picked_square_label = square.label
-
+				@picked_piece = square.piece 
+				
 				return square unless square.piece.nil?
 				return "There's no piece situated at #{label}"
 			end
