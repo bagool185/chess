@@ -32,7 +32,7 @@ RSpec.describe Player do
 			expect(square.piece.name).to eq "rook" 
 		end
 
-		it "displays error message when picking empty square" do
+		it "returns error message when picking empty square" do
 			player = Player.new("bagool")
 			board = Board.new
 			square = player.pick_square(board, "C5") 
@@ -44,6 +44,13 @@ RSpec.describe Player do
 			board = Board.new
 			square = player.pick_square(board, "A1")
 			expect(square.label).to eq "A1" 
+		end 
+
+		it "returns error message when label is not valid" do 
+			player = Player.new("bagool")
+			board = Board.new 
+			square = player.pick_square(board, "C9")
+			expect(square).to eq "The label 'C9' is not a valid one"
 		end 
 	end
 
@@ -67,5 +74,37 @@ RSpec.describe Player do
 			
 			expect(destination.name).to eq "rook"
 		end
+
+		it "returns error message for invalid moves" do 
+			player = Player.new("bagool")
+			board = Board.new 
+
+			picked_square = player.pick_square(board, "A1")
+			message = player.move_piece(board, picked_square.piece, "A2")
+
+			expect(message).to eq "You can't move to A2, because it is occupied by one of your pieces"
+		end 
+
+		it "returns error message for invalid label" do 
+			player = Player.new("bagool")
+			board = Board.new 
+
+			picked_square = player.pick_square(board, "A1")
+			message = player.move_piece(board, picked_square.piece, "A9")
+
+			expect(message).to eq "The label 'A9' is not a valid one"
+		end 
 	end 
+
+	describe context "#valid_label?" do 
+		it "returns true if the label is valid" do 
+			player = Player.new("bagool")
+			expect(player.valid_label?("A2")).to be true 
+		end 
+
+		it "returns false if the label is not valid" do 
+			player = Player.new("bagool")
+			expect(player.valid_label?("A9")).to be false 
+		end
+	end
 end
