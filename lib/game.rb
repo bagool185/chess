@@ -1,4 +1,5 @@
 require "io/console"
+require_relative "player"
 
 class Game 
   attr_accessor :player1, :player2, :board, :crt_player_turn, :game_started, :game_ended 
@@ -37,13 +38,15 @@ class Game
       if picked_square.is_a?(Square)
         puts "Where do you move the piece?: "
         move_to_label = gets.chomp 
-        error = @crt_player_turn.move_piece(@board, @crt_player_turn.picked_piece, move_piece)
+        error = @crt_player_turn.move_piece(@board, picked_square.piece, move_to_label)
+        
+        change_turn
 
         if !error.nil?
           puts error 
         end 
       else 
-         puts error 
+         puts picked_square 
       end
     end 
   end 
