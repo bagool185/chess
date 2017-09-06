@@ -29,7 +29,7 @@ class Player
 		if !valid_label?(destination_label)
 			return "The label '#{destination_label}' is not a valid one"
 		end 
-		
+
 		safe_to_move = false 
 
 		board.squares.each do |square|
