@@ -15,4 +15,7 @@ class Piece
 
 		return SHAPE_HASHES[shape_name.to_s]
 	end 
+
+	def valid_move?(from, to)
+	end 
 end 
