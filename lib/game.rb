@@ -45,11 +45,9 @@ class Game
         
         change_turn
 
-        if !error.nil?
-          puts error 
-        end 
+        puts error if error != true 
       else 
-         puts picked_square 
+         puts picked_square.label 
       end
     end 
   end 

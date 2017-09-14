@@ -58,7 +58,9 @@ class Player
 					square.piece = nil 
 				end 
 			end  
-		end 
+		end
+
+		return true 
 	end
 
 	def valid_label?(label)
