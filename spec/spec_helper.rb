@@ -6,6 +6,7 @@ require "square"
 require "player"
 require "game"
 require "pawn"
+require "movement"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
